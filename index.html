@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EP WiFi Zone Portal</title>
+    <link rel="stylesheet" href="index.css" type="text/css" />
+  </head>
+  <body>
+    <main class="portal">
+      <header>
+        <img class="logo" src="portalLogo_picture@2x.png" alt="EP WiFi Zone Logo" />
+        <div>
+          <h1>Welcome to EP WiFi Zone</h1>
+          <p class="subtitle">Choose your access method to get online quickly and securely.</p>
+        </div>
+      </header>
+
+      <section class="options">
+        <div class="auth-card">
+          <div>
+            <h2>Login Options</h2>
+            <p class="helper-text">Select a login method and fill in the details.</p>
+            <div class="auth-tabs">
+              <button class="tab-button active" type="button" data-target="local-login">
+                Local User Login
+              </button>
+              <button class="tab-button" type="button" data-target="voucher-login">
+                Voucher Login
+              </button>
+            </div>
+          </div>
+          <div>
+            <form class="form-panel active" id="local-login">
+              <div class="form-grid">
+                <div id="input-user">
+                  <label for="username">Username</label>
+                  <input id="username" type="text" placeholder="Enter your username" name="username" />
+                </div>
+                <div id="input-password">
+                  <label for="password">Password</label>
+                  <input id="password" type="password" placeholder="Enter your password" name="password" />
+                </div>
+                <div id="input-simple">
+                  <label for="simplePassword">Simple Password</label>
+                  <input id="simplePassword" type="password" placeholder="Enter your password" name="simplePassword" />
+                </div>
+                <div id="input-phone-num">
+                  <label for="phone-number">Phone Number</label>
+                  <div class="phone-row">
+                    <span class="add">+</span>
+                    <input id="country-code" placeholder="Code" />
+                    <input id="phone-number" name="phone-number" type="text" placeholder="Phone number" />
+                  </div>
+                </div>
+                <div id="input-verify-code">
+                  <label for="verify-code">Verification Code</label>
+                  <div class="verify-row">
+                    <input id="verify-code" name="verify-code" type="text" placeholder="Enter code" />
+                    <button id="get-code" class="btn" type="button">Get Code</button>
+                  </div>
+                </div>
+                <input name="clientMac" id="cMac" type="hidden" />
+                <input name="radiusSvrIp" id="radiusServerIp" type="hidden" />
+                <button class="btn btn-primary" id="button-login" type="submit">Connect</button>
+              </div>
+            </form>
+            <form class="form-panel" id="voucher-login">
+              <div class="form-grid">
+                <div id="input-voucher">
+                  <label for="voucherCode">Voucher Code</label>
+                  <input id="voucherCode" type="text" placeholder="Enter voucher code" name="voucherCode" />
+                </div>
+                <button class="btn btn-primary" type="submit">Redeem Voucher</button>
+              </div>
+            </form>
+          </div>
+          <span id="oper-hint" class="hint" aria-live="polite"></span>
+        </div>
+
+        <div class="options-row">
+          <div id="hotspot-section" class="hotspot">
+            <label for="hotspot-selector">Hotspot</label>
+            <select id="hotspot-selector"></select>
+          </div>
+          <button class="btn btn-primary" type="button" id="bkaah-button">Payment Now</button>
+        </div>
+
+        <div class="payment-panel" id="payment-panel">
+          <div class="qr-card">
+            <div class="tag">Merchant QR</div>
+            <img class="qr-image" src="" alt="Merchant QR" />
+          </div>
+          <div class="payment-details">
+            <div class="contact-row">
+              <span><strong>For more information contact us.</strong></span>
+            </div>
+            <div class="payment-alert" id="payment-alert">
+              Login failed. Please complete payment now.
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <strong>Contact us</strong>
+          <div class="contact-actions">
+            <a class="btn" href="tel:+8801773633328" aria-label="Call">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5.4 4.2c.4-.3 1-.3 1.4 0l2.6 2.6c.4.4.5 1.1.2 1.6l-1 1.7a1 1 0 0 0 .2 1.2l3.7 3.7a1 1 0 0 0 1.2.2l1.7-1c.5-.3 1.2-.2 1.6.2l2.6 2.6c.4.4.4 1 0 1.4l-1.4 1.4c-.9.9-2.2 1.3-3.5 1-3.1-.7-6.1-2.5-8.6-5-2.5-2.5-4.3-5.5-5-8.6-.3-1.3.1-2.6 1-3.5l1.4-1.4Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              Call
+            </a>
+            <a
+              class="btn"
+              href="https://wa.me/880177363328"
+              target="_blank"
+              rel="noopener"
+              aria-label="WhatsApp"
+            >
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 2a8 8 0 0 1 6.8 12.2l-.5.8.8 2.6-2.7-.7-.7.4A8 8 0 1 1 12 4Zm-3.5 4.8c-.2.1-.4.4-.6.7-.2.4-.4.8-.4 1.2 0 .4.1.8.3 1.2.3.7 1.1 1.8 2.3 2.9 1.2 1.2 2.3 2 3 2.3.4.2.8.3 1.2.3.4 0 .8-.2 1.2-.4.4-.2.6-.4.7-.6.2-.2.2-.4.2-.6l-.1-.7c0-.2-.2-.3-.4-.4l-1.1-.5c-.2-.1-.4 0-.6.2l-.5.6c-.2.2-.4.2-.6.1-.4-.2-1.1-.7-1.8-1.4-.7-.7-1.2-1.4-1.4-1.8-.1-.2-.1-.4.1-.6l.6-.5c.2-.2.3-.4.2-.6l-.5-1.1c-.1-.2-.2-.3-.4-.4l-.7-.1c-.2 0-.4 0-.6.2Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <footer>Need help? Ask our desk team for assistance at any time.</footer>
+    </main>
+
+    <script src="jquery.min.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
